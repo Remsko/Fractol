@@ -1,5 +1,10 @@
 NAME = fractol
-SRCS = srcs/mandelbrot.c \
+SRCS = srcs/main.c \
+	   srcs/color.c \
+	   srcs/fractal.c \
+	   srcs/init_fractal.c \
+	   srcs/draw.c \
+	   srcs/hook.c
 
 OBJS = $(SRCS:srcs/%.c=%.o)
 LIB = -L./minilibx_macos/ -lmlx -framework OpenGL -framework Appkit -L./libft/ -lft

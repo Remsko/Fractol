@@ -6,7 +6,7 @@
 /*   By: rpinoit <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/26 12:12:13 by rpinoit           #+#    #+#             */
-/*   Updated: 2017/12/26 13:31:21 by rpinoit          ###   ########.fr       */
+/*   Updated: 2017/12/26 17:40:13 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 void	init_color(t_env *env)
 {
 	env->color = (t_color*)malloc(sizeof(t_color) * 4);
-	env->color[0] = (t_color){0xFF9999, 0xFFCC99, 0xFFFF99, 0xCCFF99, 0x99FF99, 0x99FFCC, 0x99FFFF, 0x99CCFF, 0x999FF, 0xCC99FF, 0xFF99FF, 0xFF99CC}; // 12 colors to choose
-//	env->color[1] = {};
-//	env->color[2] = {};
-//	env->color[3] = {};
-	env->cur_color = &(env->color[0]);
+	env->color[0] = (t_color){0xFF9999, 0xFFCC99, 0xFFFF99, 0xCCFF99, 0x99FF99, 0x99FFCC, 0x99FFFF, 0x99CCFF, 0x999FF, 0xCC99FF, 0xFF99FF, 0xFF99CC};
+	env->color[1] = (t_color){0x330019, 0x660033, 0x99004C, 0xCC0066, 0xFF007F, 0xFF3399, 0xFF66B2, 0xFF99CC, 0xFFCCE5, 0xCCCCFF, 0xE0E0E0, 0xFFFFFF};
+	env->color[2] = (t_color){0x0E6251, 0x117864, 0x148F77, 0x17A589, 0x1ABC9C, 0x48C9B0, 0x76D7C4, 0xA3E4D7, 0xE8F8F5, 0x17202A, 0xF9EBEA, 0xD6EAF8};
+	env->color[3] = (t_color){0x000000, 0x202020, 0x404040, 0x606060, 0x808080, 0xA0A0A0, 0xC0C0C0, 0xE0E0E0, 0xFFFFFF, 0xFFFF00, 0xE628AB, 0xE9890C};
+	env->cur_color = &(env->color[3]);
 	env->i_color = 0;
 }
 
 int		get_color(int z, t_color color)
 {
-	z = sin(z) * 100;
+//	z = fabs(sinh(z) - cosh(z) + z);
 	if (z < 0)
 		color.c = color.c_0;
 	else if (z >= 0 && z < 10)
@@ -46,7 +46,7 @@ int		get_color(int z, t_color color)
 		color.c = color.c_8;
 	else if (z >= 80 && z < 90)
 		color.c = color.c_9;
-	else if (z >= 90)
+	else if (z >= 90 && z < 100)
 		color.c = color.c_10;
 	return (color.c);
 }

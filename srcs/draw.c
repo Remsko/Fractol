@@ -6,7 +6,7 @@
 /*   By: rpinoit <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/26 12:53:05 by rpinoit           #+#    #+#             */
-/*   Updated: 2017/12/26 13:16:20 by rpinoit          ###   ########.fr       */
+/*   Updated: 2017/12/26 17:57:00 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ static void	draw_fractal(t_env *env, t_fractal *fractal, int (*f)(t_env*, t_frac
 	int		pxl_color;
 
 	pos.y = 0;
-	while (pos.y < WIN_H)
+	while (pos.y < env->win_h)
 	{
 		pos.x = 0;
-		while (pos.x < WIN_W)
+		while (pos.x < env->win_w)
 		{
 			pxl_color = (*f)(env, *fractal, &pos);
 			put_pixel(env, &pos, pxl_color);
@@ -43,7 +43,7 @@ static void	draw_fractal(t_env *env, t_fractal *fractal, int (*f)(t_env*, t_frac
 
 void	mlx_fractal(t_env *env)
 {
-	env->img = mlx_new_image(env->mlx, WIN_W, WIN_H);
+	env->img = mlx_new_image(env->mlx, env->win_w, env->win_h);
 	env->data = mlx_get_data_addr(env->img, &env->bpp, &env->sline, &env->endian);
 	draw_fractal(env, env->cur_f, env->cur_f->ft);
 	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);

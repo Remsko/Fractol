@@ -6,7 +6,7 @@
 /*   By: rpinoit <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 13:48:21 by rpinoit           #+#    #+#             */
-/*   Updated: 2017/12/26 13:16:52 by rpinoit          ###   ########.fr       */
+/*   Updated: 2017/12/26 17:43:47 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 # include <math.h>
 # include <stdlib.h>
 
-# define FRACTAL_NB 1
+# define FRACTAL_NB 3
 # define COLOR_NB 4
-# define WIN_W 1366
-# define WIN_H 768
+# define WIN_W 1200
+# define WIN_H 1200
 # define ESC 53
 
 typedef struct		s_pos
@@ -41,9 +41,12 @@ typedef struct		s_fractal
 {
 	t_complex		c;
 	t_complex		z;
-	t_pos			pos1;
-	t_pos			pos2;
-	t_pos			zoom;
+	double			x1;
+	double			x2;
+	double			y1;
+	double			y2;
+	double			zoom_x;
+	double			zoom_y;
 	double			zoom_r;
 	double			tmp;
 	int				i;
@@ -82,9 +85,13 @@ typedef struct		s_env
 	t_color			*color;
 	t_color			*cur_color;
 	int				i_color;
+	double			win_w;
+	double			win_h;
 }					t_env;
 
-int		fractal_mandelbrot(t_env *env, t_fractal *f, t_pos *pos);
+int		fractal_mandelbrot(t_env *env, t_fractal f, t_pos *pos);
+int		fractal_julia(t_env *env, t_fractal f, t_pos *pos);
+int		fractal_mandelbar(t_env *env, t_fractal f, t_pos *pos);
 void	init_fractal(t_env *env);
 void	use_fractal(t_env *env, char *name);
 void	init_color(t_env *env);
