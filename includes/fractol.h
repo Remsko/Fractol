@@ -6,7 +6,7 @@
 /*   By: rpinoit <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 13:48:21 by rpinoit           #+#    #+#             */
-/*   Updated: 2017/12/26 17:43:47 by rpinoit          ###   ########.fr       */
+/*   Updated: 2017/12/27 11:40:26 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include <math.h>
 # include <stdlib.h>
 
-# define FRACTAL_NB 3
-# define COLOR_NB 4
+# define FRACTAL_NB 4
+# define COLOR_NB 5
 # define WIN_W 1200
 # define WIN_H 1200
 # define ESC 53
@@ -92,6 +92,7 @@ typedef struct		s_env
 int		fractal_mandelbrot(t_env *env, t_fractal f, t_pos *pos);
 int		fractal_julia(t_env *env, t_fractal f, t_pos *pos);
 int		fractal_mandelbar(t_env *env, t_fractal f, t_pos *pos);
+int		fractal_burningship(t_env *env, t_fractal f, t_pos *pos);
 void	init_fractal(t_env *env);
 void	use_fractal(t_env *env, char *name);
 void	init_color(t_env *env);
