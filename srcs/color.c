@@ -6,7 +6,7 @@
 /*   By: rpinoit <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/26 12:12:13 by rpinoit           #+#    #+#             */
-/*   Updated: 2017/12/27 10:57:10 by rpinoit          ###   ########.fr       */
+/*   Updated: 2017/12/27 14:16:39 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	init_color(t_env *env)
 
 int		get_color(int z, t_color color)
 {
-	z = fabs(sinh(z) - cosh(z) + z);
+//	z = fabs(sinh(z) - cosh(z) + z);
 	if (z < 0)
 		color.c = color.c_0;
 	else if (z >= 0 && z < 10)
@@ -54,7 +54,7 @@ int		get_color(int z, t_color color)
 
 void	change_color(t_env *env)
 {
-	if (env->i_color == COLOR_NB - 1)
+	if (env->i_color == 4)
 		env->i_color = 0;
 	else
 		env->i_color++;

@@ -6,7 +6,7 @@
 /*   By: rpinoit <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 13:48:21 by rpinoit           #+#    #+#             */
-/*   Updated: 2017/12/27 11:40:26 by rpinoit          ###   ########.fr       */
+/*   Updated: 2017/12/27 17:53:52 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,20 @@
 # include <math.h>
 # include <stdlib.h>
 
-# define FRACTAL_NB 4
-# define COLOR_NB 5
+# define KEY_ENTER 36
+# define KEY_ESCAPE 53
+# define KEY_MINUS 27
+# define KEY_PLUS 24
+# define KEY_1 18
+# define KEY_2 19
+# define KEY_3 20
+# define KEY_4 21
+# define KEY_LEFT 123
+# define KEY_DOWN 125
+# define KEY_RIGHT 124
+# define KEY_UP 126
 # define WIN_W 1200
 # define WIN_H 1200
-# define ESC 53
 
 typedef struct		s_pos
 {
@@ -101,5 +110,7 @@ void	change_color(t_env *env);
 void	mlx_fractal(t_env *env);
 int		expose_hook(t_env *env);
 int		key_hook(int key, t_env *env);
+void	fractal_translate(t_env *env, int distance, char axis);
+void	change_i(t_env *env, int i);
 
 #endif

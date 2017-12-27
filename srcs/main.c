@@ -6,7 +6,7 @@
 /*   By: rpinoit <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 13:08:21 by rpinoit           #+#    #+#             */
-/*   Updated: 2017/12/27 10:40:19 by rpinoit          ###   ########.fr       */
+/*   Updated: 2017/12/27 14:14:21 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,18 @@ static void	put_usage(t_env *env)
 	int i;
 
 	i = 0;
+	ft_putendl("~");
 	ft_putendl("Usage : ./fractol <fractal's name>");
 	ft_putstr("Available fractals: ");
-	while (i < FRACTAL_NB)
+	while (i < 4)
 	{
 		ft_putstr(env->f[i].name);
-		if (i < FRACTAL_NB - 1)
+		if (i < 3)
 			ft_putstr(", ");
 		i++;
 	}
-	ft_putchar('.');
+	ft_putendl(".");
+	ft_putendl("~");
 	exit(EXIT_FAILURE);
 }
 
@@ -37,7 +39,7 @@ static void	check_param(int ac, char **av, t_env *env)
 	i = 0;
 	if (ac != 2)
 		put_usage(env);
-	while (i < FRACTAL_NB)
+	while (i < 4)
 	{
 		if (ft_strcmp(av[1], env->f[i].name) == 0)
 			return ;
