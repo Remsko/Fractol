@@ -6,7 +6,7 @@
 /*   By: rpinoit <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 13:08:21 by rpinoit           #+#    #+#             */
-/*   Updated: 2017/12/27 14:14:21 by rpinoit          ###   ########.fr       */
+/*   Updated: 2017/12/28 11:03:58 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int		main(int ac, char **av)
 
 	env.win_w = WIN_W;
 	env.win_h = WIN_H;
+	env.active_m = 'Y';
 	init_fractal(&env);
 	init_color(&env);
 	check_param(ac, av, &env);
@@ -67,8 +68,8 @@ int		main(int ac, char **av)
 	use_fractal(&env, av[1]);
 	mlx_expose_hook(env.win, expose_hook, &env);
 	mlx_key_hook(env.win, key_hook, &env);
-//	mlx_mouse_hook(env.win, mouse_hook, &env);
-//	mlx_hook(env.win, 6, 1L<<6, motion_hook, &env);
+	mlx_mouse_hook(env.win, mouse_hook, &env);
+	mlx_hook(env.win, 6, 1L<<6, motion_hook, &env);
 	mlx_loop(env.mlx);
 	return (0);
 }

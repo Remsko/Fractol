@@ -6,7 +6,7 @@
 /*   By: rpinoit <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 13:48:21 by rpinoit           #+#    #+#             */
-/*   Updated: 2017/12/27 17:53:52 by rpinoit          ###   ########.fr       */
+/*   Updated: 2017/12/28 14:52:40 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@
 # include <math.h>
 # include <stdlib.h>
 
+# define PAD_MINUS 78
+# define PAD_PLUS 69
+# define RIGHT_CLICK 1
+# define LEFT_CLICK 2
+# define SCROLL_UP 4
+# define SCROLL_DOWN 5
 # define KEY_ENTER 36
 # define KEY_ESCAPE 53
 # define KEY_MINUS 27
@@ -30,9 +36,10 @@
 # define KEY_LEFT 123
 # define KEY_DOWN 125
 # define KEY_RIGHT 124
+# define KEY_SPACE 49
 # define KEY_UP 126
-# define WIN_W 1200
-# define WIN_H 1200
+# define WIN_W 1000
+# define WIN_H 1000
 
 typedef struct		s_pos
 {
@@ -96,6 +103,7 @@ typedef struct		s_env
 	int				i_color;
 	double			win_w;
 	double			win_h;
+	char			active_m;
 }					t_env;
 
 int		fractal_mandelbrot(t_env *env, t_fractal f, t_pos *pos);
@@ -112,5 +120,7 @@ int		expose_hook(t_env *env);
 int		key_hook(int key, t_env *env);
 void	fractal_translate(t_env *env, int distance, char axis);
 void	change_i(t_env *env, int i);
+int		motion_hook(int x, int y, t_env *env);
+int		mouse_hook(int button, int x, int y, t_env *env);
 
 #endif
