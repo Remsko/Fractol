@@ -6,7 +6,7 @@
 /*   By: rpinoit <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/26 12:53:05 by rpinoit           #+#    #+#             */
-/*   Updated: 2017/12/28 13:03:57 by rpinoit          ###   ########.fr       */
+/*   Updated: 2017/12/29 13:51:01 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ static void	put_pixel(t_env *env, t_pos *pos, int color)
 	env->data[++pts] = color >> 16;
 }
 
-static void	draw_fractal(t_env *env, t_fractal *fractal, int (*f)(t_env*, t_fractal, t_pos*))
+static void	draw_fractal(t_env *env, t_fractal *fractal,
+		int (*f)(t_env*, t_fractal, t_pos*))
 {
 	t_pos	pos;
 	int		pxl_color;
@@ -41,10 +42,11 @@ static void	draw_fractal(t_env *env, t_fractal *fractal, int (*f)(t_env*, t_frac
 	}
 }
 
-void	mlx_fractal(t_env *env)
+void		mlx_fractal(t_env *env)
 {
 	env->img = mlx_new_image(env->mlx, env->win_w, env->win_h);
-	env->data = mlx_get_data_addr(env->img, &env->bpp, &env->sline, &env->endian);
+	env->data = mlx_get_data_addr(env->img, &env->bpp, &env->sline,
+			&env->endian);
 	draw_fractal(env, env->cur_f, env->cur_f->ft);
 	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
 	mlx_destroy_image(env->mlx, env->img);

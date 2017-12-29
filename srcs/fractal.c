@@ -6,7 +6,7 @@
 /*   By: rpinoit <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/26 11:52:22 by rpinoit           #+#    #+#             */
-/*   Updated: 2017/12/28 13:00:01 by rpinoit          ###   ########.fr       */
+/*   Updated: 2017/12/29 13:52:28 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 int		fractal_mandelbrot(t_env *env, t_fractal f, t_pos *pos)
 {
-	f.c.r = 1.0 * (pos->x - env->win_w / 2) / (0.5 * f.zoom_r * env->win_w) + f.x1;
-	f.c.i = 1.0 * (pos->y - env->win_h / 2) / (0.5 * f.zoom_r * env->win_h) + f.y1;
+	f.c.r = 1.0 * (pos->x - env->win_w / 2)
+		/ (0.5 * f.zoom_r * env->win_w) + f.x1;
+	f.c.i = 1.0 * (pos->y - env->win_h / 2)
+		/ (0.5 * f.zoom_r * env->win_h) + f.y1;
 	while (((f.z.r * f.z.r + f.z.i * f.z.i) < 4) && (f.i < f.i_max))
 	{
 		f.tmp = f.z.r;
@@ -30,8 +32,10 @@ int		fractal_mandelbrot(t_env *env, t_fractal f, t_pos *pos)
 
 int		fractal_julia(t_env *env, t_fractal f, t_pos *pos)
 {
-	f.z.r = 1.0 * (pos->x - env->win_w / 2) / (0.5 * f.zoom_r * env->win_w) + f.x1;
-	f.z.i = (pos->y - env->win_h / 2) / (0.5 * f.zoom_r * env->win_h) + f.y1;
+	f.z.r = 1.0 * (pos->x - env->win_w / 2)
+		/ (0.5 * f.zoom_r * env->win_w) + f.x1;
+	f.z.i = (pos->y - env->win_h / 2)
+		/ (0.5 * f.zoom_r * env->win_h) + f.y1;
 	while (((f.z.r * f.z.r) + (f.z.i * f.z.i) < 4) &&
 			(f.i < f.i_max))
 	{
@@ -47,8 +51,10 @@ int		fractal_julia(t_env *env, t_fractal f, t_pos *pos)
 
 int		fractal_mandelbar(t_env *env, t_fractal f, t_pos *pos)
 {
-	f.c.r = 1.0 * (pos->x - env->win_w / 2) / (0.5 * f.zoom_r * env->win_w) + f.x1;
-	f.c.i = (pos->y - env->win_h / 2) / (0.5 * f.zoom_r * env->win_h) + f.y1;
+	f.c.r = 1.0 * (pos->x - env->win_w / 2)
+		/ (0.5 * f.zoom_r * env->win_w) + f.x1;
+	f.c.i = (pos->y - env->win_h / 2)
+		/ (0.5 * f.zoom_r * env->win_h) + f.y1;
 	while (((f.z.r * f.z.r) + (f.z.i * f.z.i) < 4) && (f.i < f.i_max))
 	{
 		f.tmp = f.z.r;
@@ -65,8 +71,10 @@ int		fractal_mandelbar(t_env *env, t_fractal f, t_pos *pos)
 
 int		fractal_burningship(t_env *env, t_fractal f, t_pos *pos)
 {
-	f.c.r = 1.0 * (pos->x - env->win_w / 2) / (0.5 * f.zoom_r * env->win_w) + f.x1;
-	f.c.i = (pos->y - env->win_h / 2) / (0.5 * f.zoom_r * env->win_h) + f.y1;
+	f.c.r = 1.0 * (pos->x - env->win_w / 2)
+		/ (0.5 * f.zoom_r * env->win_w) + f.x1;
+	f.c.i = (pos->y - env->win_h / 2)
+		/ (0.5 * f.zoom_r * env->win_h) + f.y1;
 	while (((f.z.r * f.z.r + f.z.i * f.z.i) < 4) && (f.i < f.i_max))
 	{
 		f.tmp = f.z.r;

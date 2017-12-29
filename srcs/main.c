@@ -6,7 +6,7 @@
 /*   By: rpinoit <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 13:08:21 by rpinoit           #+#    #+#             */
-/*   Updated: 2017/12/28 11:03:58 by rpinoit          ###   ########.fr       */
+/*   Updated: 2017/12/29 13:46:32 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static void	init_win(t_env *env, char *name)
 	env->win = mlx_new_window(env->mlx, env->win_w, env->win_h, name);
 }
 
-int		main(int ac, char **av)
+int			main(int ac, char **av)
 {
 	t_env env;
 
@@ -69,7 +69,7 @@ int		main(int ac, char **av)
 	mlx_expose_hook(env.win, expose_hook, &env);
 	mlx_key_hook(env.win, key_hook, &env);
 	mlx_mouse_hook(env.win, mouse_hook, &env);
-	mlx_hook(env.win, 6, 1L<<6, motion_hook, &env);
+	mlx_hook(env.win, 6, 1L << 6, motion_hook, &env);
 	mlx_loop(env.mlx);
 	return (0);
 }
