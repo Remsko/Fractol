@@ -6,7 +6,7 @@
 /*   By: rpinoit <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 13:48:21 by rpinoit           #+#    #+#             */
-/*   Updated: 2017/12/29 11:52:43 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/05/13 16:28:04 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # include <stdio.h>
 # include <math.h>
 # include <stdlib.h>
+
+# define WIN_H 1000
+# define WIN_W 1000
 
 # define PAD_MINUS 78
 # define PAD_PLUS 69
@@ -33,13 +36,12 @@
 # define KEY_2 19
 # define KEY_3 20
 # define KEY_4 21
-# define KEY_LEFT 123
-# define KEY_DOWN 125
-# define KEY_RIGHT 124
+# define KEY_LEFT 124
+# define KEY_DOWN 126
+# define KEY_RIGHT 123
+# define KEY_UP 125
 # define KEY_SPACE 49
-# define KEY_UP 126
-# define WIN_W 1000
-# define WIN_H 1000
+# define KEY_A 0
 
 typedef struct		s_pos
 {
@@ -49,8 +51,8 @@ typedef struct		s_pos
 
 typedef struct		s_complex
 {
-	double 			r;
-	double 			i;
+	double			r;
+	double			i;
 }					t_complex;
 
 typedef struct		s_fractal
@@ -104,23 +106,24 @@ typedef struct		s_env
 	double			win_w;
 	double			win_h;
 	char			active_m;
+	char			active_aa;
 }					t_env;
 
-int		fractal_mandelbrot(t_env *env, t_fractal f, t_pos *pos);
-int		fractal_julia(t_env *env, t_fractal f, t_pos *pos);
-int		fractal_mandelbar(t_env *env, t_fractal f, t_pos *pos);
-int		fractal_burningship(t_env *env, t_fractal f, t_pos *pos);
-void	init_fractal(t_env *env);
-void	use_fractal(t_env *env, char *name);
-void	init_color(t_env *env);
-int		get_color(int z, t_color color);
-void	change_color(t_env *env);
-void	mlx_fractal(t_env *env);
-int		expose_hook(t_env *env);
-int		key_hook(int key, t_env *env);
-void	fractal_translate(t_env *env, int distance, char axis);
-void	change_i(t_env *env, int i);
-int		motion_hook(int x, int y, t_env *env);
-int		mouse_hook(int button, int x, int y, t_env *env);
+int					fractal_mandelbrot(t_env *env, t_fractal f, t_pos *pos);
+int					fractal_julia(t_env *env, t_fractal f, t_pos *pos);
+int					fractal_mandelbar(t_env *env, t_fractal f, t_pos *pos);
+int					fractal_burningship(t_env *env, t_fractal f, t_pos *pos);
+void				init_fractal(t_env *env);
+void				use_fractal(t_env *env, char *name);
+void				init_color(t_env *env);
+int					get_color(int z, t_color color);
+void				change_color(t_env *env);
+void				mlx_fractal(t_env *env);
+int					expose_hook(t_env *env);
+int					key_hook(int key, t_env *env);
+void				fractal_translate(t_env *env, int distance, char axis);
+void				change_i(t_env *env, int i);
+int					motion_hook(int x, int y, t_env *env);
+int					mouse_hook(int button, int x, int y, t_env *env);
 
 #endif

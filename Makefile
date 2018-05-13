@@ -6,7 +6,7 @@
 #    By: rpinoit <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/27 12:57:59 by rpinoit           #+#    #+#              #
-#    Updated: 2017/12/27 17:29:49 by rpinoit          ###   ########.fr        #
+#    Updated: 2018/03/23 13:01:35 by rpinoit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,9 +37,11 @@ all: $(NAME)
 
 clean:
 	$(RM) $(OBJS)
+	make clean -C libft
 
 fclean: clean
 	$(RM) $(NAME)
+	make fclean -C libft
 
 re: fclean all
 

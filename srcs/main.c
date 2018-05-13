@@ -6,7 +6,7 @@
 /*   By: rpinoit <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 13:08:21 by rpinoit           #+#    #+#             */
-/*   Updated: 2017/12/29 13:46:32 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/28 14:19:49 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ int			main(int ac, char **av)
 	env.win_w = WIN_W;
 	env.win_h = WIN_H;
 	env.active_m = 'Y';
+	env.active_aa = 'N';
 	init_fractal(&env);
 	init_color(&env);
 	check_param(ac, av, &env);

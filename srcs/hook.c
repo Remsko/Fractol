@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/27 14:32:36 by rpinoit           #+#    #+#             */
-/*   Updated: 2017/12/29 13:58:05 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/28 14:20:47 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,18 +49,20 @@ int				key_hook(int key, t_env *env)
 		mlx_destroy_window(env->mlx, env->win);
 		exit(EXIT_SUCCESS);
 	}
-	if (key == PAD_PLUS)
+	else if (key == PAD_PLUS)
 		mouse_hook(key, (env->win_h / 2), (env->win_w / 2), env);
-	if (key == PAD_MINUS)
+	else if (key == PAD_MINUS)
 		mouse_hook(key, (env->win_h / 2), (env->win_w / 2), env);
-	if (key == KEY_ENTER)
+	else if (key == KEY_ENTER)
 		change_color(env);
-	if (key == KEY_MINUS)
+	else if (key == KEY_MINUS)
 		change_i(env, -5);
-	if (key == KEY_PLUS)
+	else if (key == KEY_PLUS)
 		change_i(env, 5);
-	if (key == KEY_SPACE)
+	else if (key == KEY_SPACE)
 		env->active_m = env->active_m == 'Y' ? 'N' : 'Y';
+	else if (key == KEY_A)
+		env->active_aa = env->active_aa == 'N' ? 'Y' : 'N';
 	move_fractal(key, env);
 	switch_fractal(key, env);
 	mlx_fractal(env);

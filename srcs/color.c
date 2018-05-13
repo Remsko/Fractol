@@ -6,7 +6,7 @@
 /*   By: rpinoit <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/26 12:12:13 by rpinoit           #+#    #+#             */
-/*   Updated: 2017/12/29 13:45:34 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/05/13 16:31:54 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ void	init_color(t_env *env)
 
 int		get_color(int z, t_color color)
 {
-	z = sin(z) * 100;
+	z = z % 101;
 	color.c = 0xD6EAF8;
 	if (z < 0)
 		color.c = color.c_0;
 	else if (z >= 0 && z < 10)
-		color.c = color.c_1;
+		color.c = color.c_1 + z;
 	else if (z >= 10 && z < 20)
 		color.c = color.c_2;
 	else if (z >= 20 && z < 30)
